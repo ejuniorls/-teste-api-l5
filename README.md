@@ -1,24 +1,30 @@
-# Lumen PHP Framework
+### Requisitos
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+Será necessário ter instalado na máquina:
+- [Laragon](https://laragon.org/download/).
+- Banco de dados MySql.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### Instalação
+- Clone o projeto no diretório `www` do Laragon.
+- Crie uma base no MySql (`l5_database`).
 
-## Official Documentation
+Abra o terminal no diretório do projeto e execute o comando abaixo:
+```bash
+composer install
+```
+Copie o arquivo `.env.example` e renomeie para `.env`. E preencha os dados abaixo:
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+```bash
+DB_DATABASE=l5_database
+DB_USERNAME=usuário
+DB_PASSWORD=senha
+```
+Execute o comando abaixo para criar as tabelas no banco para a aplicação
+```bash
+php artisan migrate
+```
 
-## Contributing
-
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Execute o comando abaixo para rodar a api. Precisa ser na porta informada.
+```bash
+php -S localhost:8000 -t public
+```
